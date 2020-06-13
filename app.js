@@ -10,3 +10,5 @@ router.get('/', function(request,response){
 //add the router
 app.use('/', router);
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+//allow charge static files from root
+app.use(express.static('.'))
