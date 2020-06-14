@@ -35,3 +35,28 @@
   text-align: center;
   width: 100%;
 } */
+
+
+
+
+.cart-summary-empty {
+  color: #d1d1d1 !important;
+}
+
+/* .cart .count::after {
+	content: ')';
+}
+.cart .count::before {
+	content: '(';
+} */
+a.cart .count {
+	background: #0055ad;
+	border-radius: 50%;
+	color: #fff;
+	font-family: "Roboto", arial, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	/* position: absolute; */
+	letter-spacing: -0.05em;
+}

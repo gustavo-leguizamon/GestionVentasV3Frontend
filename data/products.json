@@ -5,7 +5,7 @@
     "marca": "Noganet",
     "nombre": "Mouse",
     "imagen": "https://www.xt-pc.com.ar/img/productos/Pics_Prod/MOU606.jpg",
-    "precio": 10
+    "precio": 199.99
   },
   {
     "productoId": 2,
@@ -13,7 +13,7 @@
     "marca": null,
     "nombre": "Camara",
     "imagen": "https://arsonyb2c.vteximg.com.br/arquivos/ids/292526-1000-1000/ILCE-7K_Black-0.jpg?v=637124363789970000",
-    "precio": 15
+    "precio": 1500.00
   },
   {
     "productoId": 3,
@@ -21,7 +21,7 @@
     "marca": "Noganet",
     "nombre": "Teclado",
     "imagen": "https://http2.mlstatic.com/teclado-usb-ergonomico-pc-notebook-oficina-qwerty-espanol-garantia-oficial-D_NQ_NP_626103-MLA31936565669_082019-F.jpg",
-    "precio": 20
+    "precio": 2060
   },
   {
     "productoId": 4,
@@ -29,7 +29,7 @@
     "marca": "Samsung",
     "nombre": "Monitor",
     "imagen": "https://images.samsung.com/is/image/samsung/uk-led-sf350-ls24f350fhuxen-001-front-black?$PD_GALLERY_L_JPG$",
-    "precio": 38
+    "precio": 4650.50
   },
   {
     "productoId": 5,
@@ -37,6 +37,6 @@
     "marca": "Gigabit",
     "nombre": "CPU",
     "imagen": "https://vignette2.wikia.nocookie.net/applezone/images/6/67/CPU.jpg/revision/latest?cb=20120318030604&path-prefix=es",
-    "precio": 250
+    "precio": 6900
   }
 ]
