@@ -26,7 +26,7 @@ function getProducts(){
                             <div class="card">
                               <img src="${product.imagen}" alt="${product.nombre}" class="card-img-top img-fluid">
                               <div class="card-body">
-                                <h3>$${product.precio}</h3>
+                                <h3>$${currencyFormat(product.precio)}</h3>
                                 <h5>${product.nombre}</h5>
 
                                 <div class="input-group mb-3">

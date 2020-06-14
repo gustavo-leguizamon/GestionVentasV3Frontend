@@ -49,11 +49,17 @@ function updateSummary(product){
   $('.summary').html(value);
 }
 
+function updateCartProduct(product) {
+  var total = product.cantidad * product.precio;
+  $('#cart-item-price-total-' + product.productoId).html(currencyFormat(total));
+}
+
 function addProduct(productID){
   var selected = selectedProducts.find(x => x.productoId == productID);
   if (selected){
     selected.cantidad = selected.cantidad + 1;
     updateSummary(selected);
+    updateCartProduct(selected);
   }
   else{
     var product = products.find(x => x.productoId == productID)
@@ -69,7 +75,7 @@ function addProduct(productID){
                       <span class="truncate">${product.nombre}</span>
                     </div>
                     <div class="cart-item-price">
-                      <span>$${product.precio}</span>
+                      <span>$</span><span id="cart-item-price-total-${product.productoId}">${currencyFormat(product.precio)}</span>
                     </div>
                     <div class="cart-item-remove">
                       <a href="#">
