@@ -11,30 +11,30 @@ $(function(){
 function openCart() {
   $('#cart').css('width', '450px');
   
-  // $('#relleno').css('width', '100%');
-  // $('#relleno').css('height', '100%');
-  // $('#relleno').css('background-color', 'rgba(0,0,0,0.4)');
-  // $('#relleno').bind('click', function(){
-  //   closeCart();
-  // });
+  $('#fill').css('width', '100%');
+  $('#fill').css('height', '100%');
+  $('#fill').css('background-color', 'rgba(0,0,0,0.4)');
+  $('#fill').bind('click', function(){
+    closeCart();
+  });
 }
 
 function closeCart() {
   $('#cart').css('width', '0px');
   
-  // $('#relleno').css('background-color', 'rgba(0,0,0,0.0)');
-  // setTimeout(
-  //   function() 
-  //   {
-  //     hideRelleno();
-  //   }, 500);
-  // $('#relleno').unbind('click');
+  $('#fill').css('background-color', 'rgba(0,0,0,0.0)');
+  setTimeout(
+    function() 
+    {
+      hideFill();
+    }, 500);
+  $('#fill').unbind('click');
 }
 
-// function hideRelleno() {
-//   $('#relleno').css('width', '0');
-//   $('#relleno').css('height', '0');
-// }
+function hideFill() {
+  $('#fill').css('width', '0');
+  $('#fill').css('height', '0');
+}
 
 
 function incrementAmount(productID){
@@ -49,13 +49,26 @@ function decrementAmount(productID){
   $(id).val(value - 1);
 }
 
+function resetAmount(productID){
+  let id = '#amount-' + productID;
+  $(id).val(0);
+}
+
 function updateSummary(){
   var value = 0;
   $.each(selectedProducts, function(index, product){
     value += product.precio * product.cantidad;
   });
+
+  if(selectedProducts.length > 0){
+    $('.cart-summary').removeClass('cart-summary-empty')
+  }
+  else{
+    $('.cart-summary').addClass('cart-summary-empty')
+  }
+
   $('.count').html(selectedProducts.length);
-  $('.summary').html(currencyFormat(value));
+  $('.summary').html("$" + currencyFormat(value));
 }
 
 function updateCartProduct(product) {
@@ -87,7 +100,7 @@ function addProduct(productID){
                       <span>$</span><span id="cart-item-price-total-${product.productoId}">${currencyFormat(product.precio)}</span>
                     </div>
                     <div class="cart-item-remove">
-                      <a href="#">
+                      <a href="javascript:void(0)" onclick="removeEntireProduct(${product.productoId})">
                         <i class="fas fa-trash"></i>
                       </a>
                     </div>
@@ -107,6 +120,14 @@ function removeProduct(productID){
     $('#item-' + selected.productoId).remove();
   }
 
+  updateSummary();
+}
+
+function removeEntireProduct(productID){
+  selectedProducts = selectedProducts.remove("productoId", parseInt(productID));
+  $('#item-' + productID).remove();
+
+  resetAmount(productID);
   updateSummary();
 }
 

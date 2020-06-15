@@ -20,13 +20,13 @@
 <body>
   <div class="wrapper">
     <header class="main-header">
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">Gestión de pedidos</a>
 
         <div class="collapse navbar-collapse" id="navbar-main">
           <a id="open-cart" class="ml-auto cart-summary cart-summary-empty">
             <span class="count">0</span>
-            <span>$</span><span class="summary">0,00</span>
+            <span class="summary">$0,00</span>
             <i class="fas fa-shopping-cart"></i>
           </a>
         </div>
@@ -47,16 +47,17 @@
             <div class="btn-sell">
               <a>
                 <span class="sell-label">Comprar</span>
-                <span itemprop="price" class="price">$0,00</span>
+                <span itemprop="price" class="price summary">$0,00</span>
               </a>
             </div>
           </div>
         </div>
       </div>
+      <div id="fill"></div>
     </aside>
 
     <!-- content page -->
-    <section id="content">
+    <section id="content" class="">
       <div id="content-products" class="row">
 
       </div>
