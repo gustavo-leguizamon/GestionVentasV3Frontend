@@ -1,0 +1,26 @@
+[
+  {
+    "clienteId": 1,
+    "dni": "30000001",
+    "nombre": "Roberto",
+    "apellido": "Perez",
+    "direccion": "Calle falsa 123",
+    "telefono": "12345678"
+  },
+  {
+    "clienteId": 2,
+    "dni": "40000001",
+    "nombre": "Cosme",
+    "apellido": "Fulanito",
+    "direccion": "Av. Mitre 123",
+    "telefono": "12345555"
+  },
+  {
+    "clienteId": 3,
+    "dni": "50000001",
+    "nombre": "Patricia",
+    "apellido": "Rodriguez",
+    "direccion": "Calchaqui 3000",
+    "telefono": "11111111"
+  }
+]

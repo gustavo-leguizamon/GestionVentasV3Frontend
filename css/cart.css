@@ -62,6 +62,58 @@ body {
   transition: background-color .5s;
 } */
 
+.cart-body {
+	padding-top: 1px;
+	overflow: auto;
+	width: 100%;
+	/* padding-bottom: 20px; */
+}
+
+.cart-footer {
+  padding: 20px;
+  position: sticky;
+	bottom: 0;
+	width: 100%;
+	background: #fff;
+	-webkit-box-flex: unset;
+	-ms-flex-positive: unset;
+	flex-grow: unset;
+}
+
+.cart-footer .btn-sell a {
+	background-color: #295ba7;
+	height: 62px;
+	line-height: 45px;
+	color: #fff;
+	display: block;
+	text-align: center;
+	position: relative;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-footer .btn-sell a .sell-label {
+	font-size: 16px;
+	font-weight: bold;
+	position: absolute;
+	left: 26%;
+}
+
+.cart-footer .btn-sell a .price {
+	background-color: #134d89;
+	font-family: "Roboto", arial, sans-serif;
+	font-size: 16px;
+	height: 61px;
+	line-height: 50px;
+	padding: 7px;
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border-radius: 0 6px 6px 0;
+	font-weight: bold;
+	width: 30%;
+}
 
 .truncate {
 	display: block;

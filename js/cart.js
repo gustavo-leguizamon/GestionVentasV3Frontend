@@ -109,3 +109,43 @@ function removeProduct(productID){
 
   updateSummary();
 }
+
+function buy(){
+  if(selectedProducts.length === 0){
+    alert('No hay productos seleccionados');
+    return;
+  }
+
+  var sale = {
+    "clienteId": CLIENT_LOGGED.clienteId,
+    "carrito": {
+      "productos": []
+    }
+  };
+
+  $.each(selectedProducts, function(index, product){
+    sale.carrito.productos.push({productoId: product.productoId});
+  });
+
+  var options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(sale), // data can be `string` or {object}!
+    mode: 'cors'
+  };
+
+  fetch(API_SALE, options)
+    .then(function (response) {
+      return response.json();
+    })
+    .catch(function(error){
+      alert('Error al realizar la compra');
+    })
+    .then(function(response){
+      console.log('Success:', response);
+      alert('Se realizó la compra');
+      location.reload(true);
+    });
+}

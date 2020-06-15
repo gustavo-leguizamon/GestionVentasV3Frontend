@@ -4,6 +4,8 @@ var products = [];
 
 $(function(){
   getProducts();
+
+  $('.btn-sell').click(buy);
 });
 
 function getProducts(){
@@ -60,6 +62,6 @@ function getProducts(){
     })
     .catch(function(error){
       console.log(error);
-      alert('Error');
+      alert('Error al obtener los productos');
     });
 }
