@@ -43,10 +43,19 @@ function incrementAmount(productID){
   $(id).val(value + 1);
 }
 
-function updateSummary(product){
-  var summary = parseFloat($('.summary').html().replace(',', '.'));
-  var value = product.precio + summary;
-  $('.summary').html(value);
+function decrementAmount(productID){
+  let id = '#amount-' + productID;
+  let value = parseInt($(id).val());
+  $(id).val(value - 1);
+}
+
+function updateSummary(){
+  var value = 0;
+  $.each(selectedProducts, function(index, product){
+    value += product.precio * product.cantidad;
+  });
+  $('.count').html(selectedProducts.length);
+  $('.summary').html(currencyFormat(value));
 }
 
 function updateCartProduct(product) {
@@ -58,7 +67,7 @@ function addProduct(productID){
   var selected = selectedProducts.find(x => x.productoId == productID);
   if (selected){
     selected.cantidad = selected.cantidad + 1;
-    updateSummary(selected);
+    updateSummary();
     updateCartProduct(selected);
   }
   else{
@@ -67,7 +76,7 @@ function addProduct(productID){
     selectedProducts.push(product);
     
     var cartList = $('.cart-list');
-    var newProduct = `<li class="cart-item">
+    var newProduct = `<li id="item-${product.productoId}" class="cart-item">
                     <div class="cart-item-img">
                       <img class="img-fluid" src="${product.imagen}" />
                     </div>
@@ -85,7 +94,18 @@ function addProduct(productID){
                   </li>`;
     cartList.append(newProduct);
     
-    $('.count').html(selectedProducts.length);
-    updateSummary(product);
+    updateSummary();
   }
+}
+
+function removeProduct(productID){
+  var selected = selectedProducts.find(x => x.productoId == productID);
+  selected.cantidad = selected.cantidad - 1;
+
+  if(selected.cantidad === 0){
+    selectedProducts = selectedProducts.remove("productoId", parseInt(productID));
+    $('#item-' + selected.productoId).remove();
+  }
+
+  updateSummary();
 }

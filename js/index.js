@@ -54,9 +54,8 @@ function getProducts(){
 
       $('button.btn.btn-outline-secondary.remove-product').click(function(){
         let productID = this.dataset.productoid;
-        let id = '#amount-' + productID;
-        let value = parseInt($(id).val());
-        $(id).val(value - 1);
+        decrementAmount(productID);
+        removeProduct(productID);
       });
     })
     .catch(function(error){
