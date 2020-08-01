@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/my-purchases.css">
 
   <title>Gestión de Ventas</title>
 </head>
@@ -25,8 +26,8 @@
           <a class="navbar-brand" href="#">Gestión de pedidos</a>
 
           <div class="collapse navbar-collapse" id="navbar-main">
-            <a class="btn btn-secondary ml-auto" href="/my-purchases.html">
-              Mis compras
+            <a class="btn btn-secondary ml-auto" href="/index.html">
+              Seguir comprando
             </a>
             <a id="open-cart" class="ml-auto cart-summary cart-summary-empty">
               <span class="count">0</span>
@@ -72,7 +73,48 @@
 
       <!-- content page -->
       <section id="content" class="">
-        <div id="content-products" class="row">
+        <div id="content-purchases" class="row">
+          
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"># de compra</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cant. productos</th>
+                <th scope="col">Precio total</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="purchases">
+              <!-- <tr>
+                <th scope="row">000001</th>
+                <td>30/07/2020</td>
+                <td>5</td>
+                <td>$2050</td>
+                <td>
+                  <a>Cancelar</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">000002</th>
+                <td>30/07/2020</td>
+                <td>5</td>
+                <td>$2050</td>
+                <td>
+                  <a href="javascript:void()" title="Cancelar compra"><i class="fas fa-ban"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">000003</th>
+                <td>30/07/2020</td>
+                <td>5</td>
+                <td>$2050</td>
+                <td>
+                  <a>Cancelar</a>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
 
         </div>
       </section>
@@ -92,10 +134,11 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
   <script src="/js/endpoints.js"></script>
-  <script src="/js/constants.js"></script>
   <script src="/js/functions.js"></script>
-  <script src="/js/index.js"></script>
+  <script src="/js/constants.js"></script>
+
   <script src="/js/cart.js"></script>
+  <script src="/js/my-purchases.js"></script>
 </body>
 
 </html>

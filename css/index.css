@@ -1,14 +1,28 @@
 body {
   font-family: "Roboto", arial, sans-serif;
+  background-color: lightgray;
+}
+
+.swal2-container.swal2-center {
+  z-index: 10000;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#wrapper {
+  padding-bottom: 2.5rem;    /* Footer height */
 }
 
 #content {
   margin: 70px 25px;
 }
 
-.img-fluid {
+/* .img-fluid {
   height: 241px;
-}
+} */
 
 .card {
   transition: scale .3s;
@@ -22,6 +36,68 @@ body {
   /* opacity: 0.3; */
   scale: 1.05;
 }
+
+.card .card-header {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .card-header img {
+  height: 100%;
+}
+
+input {
+  pointer-events: none;
+}
+
+/* #cart-container {
+  position: relative;
+  height: 100%;
+} */
+/* 
+.cart-body {
+  height: 76%;
+} */
+
+/* .cart-item {
+  display: flex;
+  align-items: center;
+} */
+
+div.btn-sell.disabled {
+  cursor: no-drop !important;
+}
+.disabled a {
+  pointer-events: none !important;
+  color: #fff !important;
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+.disabled .price {
+  pointer-events: none !important;
+  color: #fff !important;
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+/* .cart-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: #343a40;
+  padding: 24px 0;
+}
+
+.btn-sell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
 
 .cart-summary {
   color: #d1d1d1 !important;
@@ -42,4 +118,28 @@ a.cart-summary .count {
 	/* position: absolute; */
   letter-spacing: -0.05em;
   padding: 0px 9px;
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /*height: 2.5rem;             Footer height */
+  color: white;
+  background-color: #343a40;
+  padding: 24px 0;
+}
+
+footer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 576px) {
+  .card .card-header {
+    height: 360px;
+  }
 }
