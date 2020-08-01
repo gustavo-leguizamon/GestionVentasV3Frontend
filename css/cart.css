@@ -16,7 +16,7 @@ body {
   left: auto;
   right: 0;
   background-color: white;
-  overflow-x: hidden;
+  overflow: hidden;
   transition: 0.2s;
   padding-top: 60px;
   z-index: 10000;
@@ -62,11 +62,47 @@ body {
   transition: background-color .5s;
 }
 
+/* .cart-header > div a {
+  background-color: #295ba7;
+	height: 62px;
+	line-height: 45px;
+	color: #fff;
+	display: block;
+	text-align: center;
+	position: relative;
+  border-radius: 6px;
+  cursor: pointer;
+} */
+.cart-header > div a {
+  font-size: 18px;
+  color: #fff;
+}
+
 .cart-body {
 	padding-top: 1px;
 	overflow: auto;
 	width: 100%;
-	/* padding-bottom: 20px; */
+  height: 76%;
+  /* display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-around; */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* FIREFOX */
+  scrollbar-width: thin;
+  scrollbar-color: #2f8be0 #fff;
+}
+.cart-body::-webkit-scrollbar {
+  width: 6px;
+  background-color: none;
+} 
+.cart-body::-webkit-scrollbar-thumb {
+  background-color: #2f8be0;
+}
+.cart-body::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  background-color: none;
 }
 
 .cart-footer {
@@ -122,20 +158,31 @@ body {
 	text-overflow: ellipsis;
 }
 
+#cart-container {
+  position: relative;
+  height: 100%;
+}
+
+.cart-header.hide {
+  display: none;
+}
+
 .cart-list {
   list-style-type: none;
   font-family: "Roboto", arial, sans-serif;
   padding-left: 0;
 }
 
-li.cart-item > div {
-  float: left;
-}
-
 li.cart-item {
 	min-height: 100px;
 	padding: 15px;
   border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: center;
+}
+
+li.cart-item > div {
+  float: left;
 }
 
 li.cart-item > div.cart-item-img {
@@ -148,9 +195,18 @@ li.cart-item > div.cart-item-img > img {
   width: auto;
 }
 
-li.cart-item > div.cart-item-name {
+li.cart-item > div.cart-item-title {
   width: 40%;
   margin-right: 10px;
+}
+
+li.cart-item > div.cart-item-title .cart-item-name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+li.cart-item > div.cart-item-title .cart-item-amount {
+  font-size: small;
 }
 
 li.cart-item > div.cart-item-price {

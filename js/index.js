@@ -1,14 +1,13 @@
-//const { response } = require("express");
-var selectedProducts = [];
-var products = [];
+initSelectedProducts();
 
 $(function(){
   getProducts();
 
-  $('.btn-sell').click(buy);
 });
 
 function getProducts(){
+  var loading = showLoading();
+
   var options = {
     method: 'GET',
     headers: {},
@@ -24,9 +23,11 @@ function getProducts(){
       products = productsJson;
       var contentProducts = $('#content-products');
       $.each(productsJson, function(index, product){
-        var productHtml = `<div class="col-sm-4 col-lg-3">
+        var productHtml = `<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
                             <div class="card">
-                              <img src="${product.imagen}" alt="${product.nombre}" class="card-img-top img-fluid">
+                              <div class="card-header">
+                                <img src="${product.imagen}" alt="${product.nombre}" class="card-img-top">
+                              </div>
                               <div class="card-body">
                                 <h3>$${currencyFormat(product.precio)}</h3>
                                 <h5>${product.nombre}</h5>
@@ -35,7 +36,7 @@ function getProducts(){
                                   <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary remove-product" type="button" data-productoId="${product.productoId}"><i class="fas fa-minus"></i></button>
                                   </div>
-                                  <input id="amount-${product.productoId}" type="text" class="form-control text-center" placeholder="" value="0">
+                                  <span class="form-control text-center amount-${product.productoId}">0</span>
                                   <div class="input-group-append">
                                     <button class="btn btn-outline-secondary add-product" type="button" data-productoId="${product.productoId}"><i class="fas fa-plus"></i></button>
                                   </div>
@@ -50,7 +51,6 @@ function getProducts(){
 
       $('button.btn.btn-outline-secondary.add-product').click(function(){
         let productID = this.dataset.productoid;
-        incrementAmount(productID);
         addProduct(productID);
       });
 
@@ -59,9 +59,14 @@ function getProducts(){
         decrementAmount(productID);
         removeProduct(productID);
       });
+
+      restoreSelectedProducts();
     })
     .catch(function(error){
       console.log(error);
-      alert('Error al obtener los productos');
+      notify('Error al obtener los productos', 'error');
+    })
+    .then(function(){
+      loading.close();
     });
 }

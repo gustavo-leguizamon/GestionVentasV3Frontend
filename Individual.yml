@@ -1,0 +1,34 @@
+Leguizamon:
+  Design: 
+    *********- Diseño minimalista.
+    *********- La forma que se muestran los productos es demasiado grande.
+    *********- Las imágenes de los productos se deforman por el tamaño.
+    *********- En el listado de carrito el título y la imagen se encuentran desalineados con el precio y el icono de eliminar.
+    *********- Sugiero agregar un footer.
+  Code:
+    HTML:
+    *********  - Se utiliza un <input> para mostrar la cantidad de productos, sugiero modificar el elemento por un <label> o <span> o deshabilitar el input para que no se pueda modificar su valor.
+    css:
+    *********  - Correcto
+    js:
+      - Falta funcionalidad para cancelar el total de la compra.
+    resultado: Regular
+  CA:
+    - Id: 1
+      Descripción: Interfaz web con el listado de los productos, cada producto con su imagen.
+      Resultado: Correcto
+    - Id: 2
+      Descripción: agregar y borrar productos al carrito.
+      Resultado: Correcto
+    - Id: 3
+      Descripción: mostrar al usuario el precio acumulado del carrito.
+      Resultado: Correcto
+    - Id: 4
+      Descripción: concretar o cancelar la venta
+      Resultado: Regular
+  UX:
+    *********- Al presionar click en el precio total se ejecuta la acción de compra, lo que provoca una mal funcionamiento.
+    *********- Al no tener productos en el carrito, puedes ver el detalle del carrito y el botón comprar se encuentra disponible, sugiero deshabilitarlo.
+    *********- En el carrito no se visualiza la cantidad por productos que escoge el usuario, sugiero agregar la cantidad para evitar confunsiones.
+    *********- En el listado de productos, se visualiza la cantidad de productos dentro de un input, este permite modificaciones por parte del usuario pero al modificar la cantidad no se suma al total.
+  Nota: 60/100
